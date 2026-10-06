@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     
@@ -11,33 +13,66 @@
         <h1 id="joke-title"> Jokes </h1>
     </header>
 
-    <nav class="navbar"> 
-        <div class = " container">
-            <a class="nav-link text-white" href=" index.html">Jokes</a>
+    
+<ul class="nav">
+    <li class="nav-item">
+        <a class="nav-link" href="jokes.html">
+            Jokes
+        </a>
+    </li>
 
-        </div>
+    <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="noms.html">
+            Noms
+        </a>
+    </li>
+</ul>
 
-    </nav>
- <!-- Language selection dropdown -->
-        <label for="language-input"> Language </label>
+
+   
+  
+  
+</nav>
+
+    <label for="joke-search">Search for joke</label>
+    <input id="joke-search">
+
+    <br/>
+    
+
+    <div> 
+        <label for="language-input"> Language</label>
         <select name="language" id="language-input">
             <option value="en"> English </option>
             <option value="es"> Spanish </option>
         </select>
-
+    </div>
         <br/>
 
+<div class="categories"> 
         <!-- Joke filter button -->
-         <lable> Select Category</lable> 
-         <input type="checkbox" name="category" id="pun" value="pun"> <label for="pun">Pun</label>
-         <input type="checkbox" name="category" id="spooky" value="spooky"> <label for="spooky">Spooky</label>
-         <input type="checkbox" name="category" id="christmas" value="christmas"><label for="christmas">Christmas</label>
+         <label> Select Category</label> 
 
+         <div>
+         <input type="checkbox" name="category" id="pun" value="pun"> <label for="pun">Pun</label>
+         </div>
+
+         <div>
+         <input type="checkbox" name="category" id="spooky" value="spooky"> <label for="spooky">Spooky</label>
+         </div>
+
+         <div>
+         <input type="checkbox" name="category" id="christmas" value="christmas"><label for="christmas">Christmas</label>
+         </div>
+      
          <br/>
+</div>
 
 
 
     <main> 
+
+
 
 
     </main>
@@ -48,6 +83,8 @@
             Come laugh with us!
         </p>
     </footer>
-    <script src="scripts/scripts.js" defer></script>
+    <script src="js/script.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
 </body>
 </html>
