@@ -91,3 +91,30 @@ function printJokes(error) {
     
 }
 
+//event lsitener to trigger the getJokes function when search button is clicked
+document.getElementById("joke-search-button").addEventListener("click", function()
+ {
+    let language = document.getElementById("language-input").value;
+    let typeElements = document.querySelectorAll(".categories input[type='checkbox']");
+    let types = [];
+    typeElements.forEach(function(element)
+     {
+        if (element.checked) 
+        {
+            types.push(element.value);
+        }
+    });
+    let searchString = document.getElementById("joke-search").value;
+    getJokes(language, types, searchString);
+});
+
+
+// loop through results
+for (let i=0; i < jokeArray.length; i++) 
+{
+    let jokeDiv = document.createElement("div");
+    jokeDiv.textContent = jokeArray[i];
+    document.getElementById("joke-output").appendChild(jokeDiv);
+
+}
+
