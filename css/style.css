@@ -16,3 +16,61 @@ footer
     margin-top: 20px;
     
 }
+
+.nav 
+{
+    justify-content: center;
+    background-color: #B7C9A8;
+}
+
+.nav .nav-link 
+{
+    color: darkgreen;
+    font-weight: bold;
+}
+
+.nav .nav-link:hover {
+    color: darkgreen;
+}
+
+.nav .nav-link.active {
+    color: darkgreen;
+    font-weight: bold;
+}
+
+#joke-search 
+{
+    border:1px solid darkgreen;
+    border-radius: 8px;
+    font-size: 16px;
+    margin-left: 10px;
+}
+
+label[for="joke-search"]
+{
+    font-weight: bold;
+    color: darkgreen;
+}
+
+#language-input 
+{
+    border:1px solid darkgreen;
+    border-radius: 8px;
+    font-size: 16px;
+    margin-left: 10px;
+}
+
+label[for="language-input"]
+{
+    font-weight: bold;
+    color: darkgreen;
+}
+
+.categories
+{
+    font-size: 16px;
+    color: darkgreen;
+    font-weight: bold;
+}
+
+
