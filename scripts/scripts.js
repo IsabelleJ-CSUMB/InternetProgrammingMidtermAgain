@@ -91,22 +91,23 @@ function printJokes(error) {
     
 }
 
-//event lsitener to trigger the getJokes function when search button is clicked
-document.getElementById("joke-search-button").addEventListener("click", function()
- {
-    let language = document.getElementById("language-input").value;
-    let typeElements = document.querySelectorAll(".categories input[type='checkbox']");
+
+    function applyFilters()
+    {
+        let language = document.getElementById("language-input").value; 
+        let typeBox= document.querySelectorAll (" .categories input[type='checkbox']");
+        let string = document.getElementById("string-input").value;
+    };
+
+    //array to check if checkboxes are checked
     let types = [];
-    typeElements.forEach(function(element)
-     {
-        if (element.checked) 
-        {
-            types.push(element.value);
+    typeBox.forEach(function(checkbox) {
+        if (checkbox.checked) {
+            types.push(checkbox.value);
         }
     });
-    let searchString = document.getElementById("joke-search").value;
-    getJokes(language, types, searchString);
-});
+
+    
 
 
 // loop through results
@@ -118,3 +119,22 @@ for (let i=0; i < jokeArray.length; i++)
 
 }
 
+
+//event listener for language
+document.getElementById("language-input").addEventListener("change", function() 
+{
+    applyFilters();
+});
+
+document.getElementById("type-input").addEventListener("change", function()
+{
+    applyFilters();
+});
+
+document.getElementById("string-input").addEventListener("input", function()
+{
+    applyFilters();
+});
+
+    
+    
