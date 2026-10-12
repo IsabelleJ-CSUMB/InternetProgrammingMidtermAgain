@@ -24,7 +24,7 @@ async function getJokes (language, type, string) {
     }
 
     //adds the language flag, this is only added if the language isn't english
-    if(language != "eng") {
+    if(language !== "en") {
         fetchString = fetchString + "?lang=" + language;
         fetchString = fetchString + "&blacklistFlags=nsfw,religious,political,racist,sexist,explicit";
 
@@ -60,11 +60,11 @@ getJokes(testLanguage, testTypes, testString);
 function listJokeText() {
     let error;
     //this loop gets all the joke texts and puts it in the jokeArray, has behvaior fitting 1 and 2 part jokes
-    if(jokesData.error = true) {
+    if(jokesData.error == true) {
         error = true
     } else {
         for(let i = 0; i < jokesData.jokes.length; i++) {
-
+ 
         if (jokesData.jokes[i].type == "single") {
             jokeArray[i] = jokesData.jokes[i].joke;
         } else if (jokesData.jokes[i].type == "twopart") {
@@ -78,46 +78,62 @@ function listJokeText() {
     printJokes(error);
 }
 
-function printJokes(error) {
-    if (error = true) {
+
+function printJokes(error)
+{
+     let output = document.getElementById("joke-output");
+
+output.innerHTML = "";
+  
+{
+    if (error == true) {
         let jokeText = document.createElement("p");
         jokeText.textContent = "Error! No jokes for the given parameters found.";
+        output.appendChild(jokeText);
     } else {
         for (let i = 0; i < jokeArray.length; i++) {
         let jokeText = document.createElement("p");
         jokeText.textContent = jokeArray[i];
+        output.appendChild(jokeText);
         }
     }
     
 }
+}
 
 
-    function applyFilters()
+    function applyFilters() 
     {
+    
         let language = document.getElementById("language-input").value; 
         let typeBox= document.querySelectorAll (" .categories input[type='checkbox']");
-        let string = document.getElementById("string-input").value;
-    };
+    
 
     //array to check if checkboxes are checked
     let types = [];
-    typeBox.forEach(function(checkbox) {
-        if (checkbox.checked) {
+    typeBox.forEach(function(checkbox) 
+    {
+        if (checkbox.checked) 
+        {
             types.push(checkbox.value);
         }
     });
 
+    let string = document.getElementById("joke-search").value;
+    getJokes(language, types, string);
+}
     
 
+let categoryFilters = document.querySelectorAll(".categories input[type='checkbox']");
 
-// loop through results
-for (let i=0; i < jokeArray.length; i++) 
+categoryFilters.forEach(function(checkbox)
 {
-    let jokeDiv = document.createElement("div");
-    jokeDiv.textContent = jokeArray[i];
-    document.getElementById("joke-output").appendChild(jokeDiv);
-
-}
+    checkbox.addEventListener("change", function()
+    {
+        applyFilters();
+    });
+});
+    
 
 
 //event listener for language
@@ -126,12 +142,15 @@ document.getElementById("language-input").addEventListener("change", function()
     applyFilters();
 });
 
-document.getElementById("type-input").addEventListener("change", function()
+categoryFilters.forEach(function(checkbox) 
 {
-    applyFilters();
+    checkbox.addEventListener("change", function()
+    {
+        applyFilters();
+    });
 });
 
-document.getElementById("string-input").addEventListener("input", function()
+document.getElementById("joke-search").addEventListener("input", function()
 {
     applyFilters();
 });
