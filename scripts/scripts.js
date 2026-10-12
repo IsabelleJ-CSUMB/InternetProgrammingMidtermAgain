@@ -55,7 +55,7 @@ async function getJokes (language, type, string) {
 
 }
 
-getJokes(testLanguage, testTypes, testString);
+//getJokes(testLanguage, testTypes, testString);
 
 function listJokeText() {
     let error;
