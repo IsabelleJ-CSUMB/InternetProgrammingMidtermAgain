@@ -155,5 +155,22 @@ document.getElementById("joke-search").addEventListener("input", function()
     applyFilters();
 });
 
-    
+    document.getElementById("reset-button").addEventListener('click', function()
+{
+    document.getElementById("joke-search").value = " ";
+    document.getElementById("language-input").value = "en";
+
+    let categoryFilters = document.querySelectorAll
+    (".categories input[type = 'checkbox']");
+
+    categoryFilters.forEach(function(checkbox)
+    {
+        checkbox.checked = false;
+    });
+
+    document.getElementById("joke-output").innerHTML = " ";
+
+         
+
+});
     
