@@ -83,28 +83,68 @@ function printFood(error)
     {
         if (error == true) {
             {
-                let foodText = document.createElement("p");
-                foodText.textContent = "Error! No foods for the given parameters found.";
+                let foodDiv = document.createElement("p");
+                foodDiv.textContent = "Error! No foods for the given parameters found.";
                 output.appendChild(foodText);
 
             }
         } else {
             for (let i= 0; i < foodArray.length; i++) 
                 {
-                    let foodText = document.createElement("p");
-                    foodText.textContent = foodArray[i];
-                    output.appendChild(foodText);
+                    let foodDiv = document.createElement("p");
+                    foodDiv.textContent = foodArray[i];
+                    output.appendChild(foodDiv);
                 }
     }
 }
 
         function applyFilters() 
+    { 
         {
             let string = document.getElementById("food-search").value;
-            let orderValues= document.getElementById("food-order").value;
-            let sorter = document.getElementById("food-sorter").value;
+            let order = document.getElementById("food-input").value;
+
+            let selectedNutrient = document.querySelector( 'input[name="nutrient_target"]:checked');
+
+            let sorter;
+            if (selectedNutrient) 
+                {
+                    sorter = selectedNutrient.value;
+                }
+                else 
+                {
+                    sorter = "";
+                }
+
+            getFood(string, order, sorter);
+
+            
         }
 
+        document.getElementById("food-search").addEventListener("change", applyFilters);
+
+        let nutrientFilters = document.querySelectorAll('input[name="nutrient_target"]');
+
+        nutrientFilters.forEach(function(radio)
+        {
+            radio.addEventListener("change", applyFilters);
+        })
+    }
+
+    document.getElementById("reset-button").addEventListener(
+    "click",
+    function() {
+        document.getElementById("joke-search").value = "";
+        document.getElementById("filter-input").value = "true";
+
+        nutrientFilters.forEach(function(radio) {
+            radio.checked = false;
+        });
+
+        foodArray = [];
+        document.getElementById("joke-output").innerHTML = "";
+    }
+);
         
 
 
