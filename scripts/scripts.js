@@ -58,6 +58,7 @@ async function getJokes (language, type, string) {
 //getJokes(testLanguage, testTypes, testString);
 
 function listJokeText() {
+    jokeArray = [];
     let error;
     //this loop gets all the joke texts and puts it in the jokeArray, has behvaior fitting 1 and 2 part jokes
     if(jokesData.error == true) {
