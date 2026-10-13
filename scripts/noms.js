@@ -1,5 +1,5 @@
 let testString = "apple";
-let order = true;
+let order = "true";
 let sorter = "nutrient%5BPROTEIN%5D";
 
 let foodData;
@@ -9,7 +9,7 @@ async function getFood (string, order, sorter) {
 
     let fetchString = "https://api.noms.sh/v1/foods?page_size=3&sort="
     
-    if (order = false) {
+    if (order == "false") {
         fetchString = fetchString + "-";
     }
 

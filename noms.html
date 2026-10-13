@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>How is Food?</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/noms.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     
@@ -43,21 +43,44 @@
 <div> 
         <label for="language-input"> Language</label>
         <select name="filter" id="filter-input">
-            <option value="ascending"> Values Ascending </option>
-            <option value="descending"> Values Descending </option>
+            <option value="true"> Values Ascending </option>
+            <option value="false"> Values Descending </option>
         </select>
     </div>
+
+<div class="categories">
 <div> 
-    <input type="radio" name="nutrient_target" value="calories" class="categories"><label for="calories">Calories</label>
+    <input type="radio" name="nutrient_target" value="nutrient%5ENERGY%5D" class="categories"><label for="nutrient%5ENERGY%5D">Calories</label>
+</div>
+<div> 
+    <input type="radio" name="nutrient_target" value="nutrient%5CARBOHYDRATE%5D" class="categories"><label for="nutrient%5CARBOHYDRATE%5D">Carbs</label>
+</div>
+<div> 
+    <input type="radio" name="nutrient_target" value="nutrient%5PROTEIN%5D" class="categories"><label for="nutrient%5PROTEIN%5D">Protein</label>
+</div>
+<div> 
+    <input type="radio" name="nutrient_target" value="nutrient%5TOTAL_FAT%5D" class="categories"><label for="nutrient%5TOTAL_FAT%5D">Fat</label>
+</div>
+<div> 
+    <input type="radio" name="nutrient_target" value="nutrient%5TOTAL_SUGARS%5D" class="categories"><label for="nutrient%5TOTAL_SUGARS%5D">Sugar</label>
+</div>
 </div>
 
 <br/>
 
 
 
+<button type="button" id="reset-button" class="btn btn-secondary">
+    Reset Filters
+</button>
+
+
+
+
     <main> 
 
-
+             <!-- for the loop -->
+            <div id="joke-output"></div>
 
 
     </main>
