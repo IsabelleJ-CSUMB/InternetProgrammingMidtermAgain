@@ -74,3 +74,40 @@ async function listFoodData() {
 
 }
 getFood(testString, order, sorter);
+
+function printFood(error)
+{
+    let output = document.GetElementBtId("food-output");
+    output.innerHTML = "";
+
+    {
+        if (error == true) {
+            {
+                let foodText = document.createElement("p");
+                foodText.textContent = "Error! No foods for the given parameters found.";
+                output.appendChild(foodText);
+
+            }
+        } else {
+            for (let i= 0; i < foodArray.length; i++) 
+                {
+                    let foodText = document.createElement("p");
+                    foodText.textContent = foodArray[i];
+                    output.appendChild(foodText);
+                }
+    }
+}
+
+        function applyFilters() 
+        {
+            let string = document.getElementById("food-search").value;
+            let orderValues= document.getElementById("food-order").value;
+            let sorter = document.getElementById("food-sorter").value;
+        }
+
+        
+
+
+
+
+}
