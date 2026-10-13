@@ -52,7 +52,8 @@ async function getFood (string, order, sorter) {
 }
 
 async function listFoodData() {
-    let error;
+    let error = false;
+    foodarray = [];
     //this loop gets all the joke texts and puts it in the jokeArray, has behvaior fitting 1 and 2 part jokes
     if(foodData.data.length == 0) {
         error = true;
@@ -71,13 +72,14 @@ async function listFoodData() {
     }
     //debug
     console.log(foodArray);
+    printFood(error);
 
 }
 getFood(testString, order, sorter);
 
 function printFood(error)
 {
-    let output = document.GetElementBtId("food-output");
+    let output = document.getElementById("joke-output");
     output.innerHTML = "";
 
     {
@@ -85,7 +87,7 @@ function printFood(error)
             {
                 let foodDiv = document.createElement("p");
                 foodDiv.textContent = "Error! No foods for the given parameters found.";
-                output.appendChild(foodText);
+                output.appendChild(foodDiv);
 
             }
         } else {
@@ -97,12 +99,13 @@ function printFood(error)
                 }
     }
 }
+}
 
         function applyFilters() 
     { 
         {
-            let string = document.getElementById("food-search").value;
-            let order = document.getElementById("food-input").value;
+            let string = document.getElementById("joke-search").value;
+            let order = document.getElementById("filter-input").value;
 
             let selectedNutrient = document.querySelector( 'input[name="nutrient_target"]:checked');
 
@@ -120,8 +123,9 @@ function printFood(error)
 
             
         }
+    }
 
-        document.getElementById("food-search").addEventListener("change", applyFilters);
+        document.getElementById("joke-search").addEventListener("input", applyFilters);
 
         let nutrientFilters = document.querySelectorAll('input[name="nutrient_target"]');
 
@@ -129,11 +133,10 @@ function printFood(error)
         {
             radio.addEventListener("change", applyFilters);
         })
-    }
+    
 
-    document.getElementById("reset-button").addEventListener(
-    "click",
-    function() {
+    document.getElementById("reset-button").addEventListener("click", function() 
+    {
         document.getElementById("joke-search").value = "";
         document.getElementById("filter-input").value = "true";
 
@@ -143,11 +146,10 @@ function printFood(error)
 
         foodArray = [];
         document.getElementById("joke-output").innerHTML = "";
-    }
-);
+    });
+
         
 
 
 
 
-}
